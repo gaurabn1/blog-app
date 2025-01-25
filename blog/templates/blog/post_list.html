@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Blog</title>
+</head>
+
+<body>
+  <header>
+    <h1><a href="/">My Blog</a></h1>
+  </header>
+
+  {% for blog in page_obj %}
+  <hr>
+  <article>
+    <time><b>Published at: {{ blog.published_date }}</b></time>
+    <h2><a href="">{{ blog.title }}</a></h2>
+    <p>{{ blog.text }}</p>
+  </article>
+  {% endfor %}
+  <hr>
+</body>
+
+</html>
