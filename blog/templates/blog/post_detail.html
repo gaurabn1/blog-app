@@ -2,7 +2,16 @@
 
 {% block content %}
 <article class="post">
+  {% if user.is_authenticated %}
+  <aside class="actions">
+      <a class="btn btn-secondary" style="margin-left: 10px" href="{% url 'post_edit' post.id %}">
+        {% include './icons/pencil-fill.svg' %}
+      </a>
+  </aside>
+  {% endif %}
+  {% if post.published_date %}
   <time class='date'><b>Published at: {{ post.published_date }}</b></time>
+  {% endif %}
   <h2>{{ post.title }}</h2>
   <p>{{ post.text|linebreaksbr }}</p>
 </article>
